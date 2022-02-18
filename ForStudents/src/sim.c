@@ -125,96 +125,117 @@ int data_process(char* i_) {
   printf("Opcode = %s\n Rn = %d\n Rd = %d\n Operand2 = %s\n I = %d\n S = %d\n COND = %s\n", d_opcode, Rn, Rd, byte_to_binary12(Operand2), I, S, byte_to_binary4(CC));
   printf("\n");
 
-  /* Example - use and replicate */
+  /* BEGINNING Data-Processing Instructions*/
   
-  //add with carry
+  //ADC - add with carry
   if(!strcmp(d_opcode,"0101")) {
     printf("--- This is an ADC instruction. \n");
     ADC(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  //add
+  //ADD - add
   if(!strcmp(d_opcode,"0100")) {
     printf("--- This is an ADD instruction. \n");
     ADD(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }	
-  //and 
+  //AND - and 
   if(!strcmp(d_opcode,"0000")) {
     printf("--- This is an AND instruction. \n");
     AND(Rd, Rn, Operand2, I, S, CC);
     return 0;
-  
   }	
-  //arithmetic shift right
-  if(!strcmp(d_opcode,"0101")) {
+  //ASR - arithmetic shift right
+  if(!strcmp(d_opcode,"1101")) {
     printf("--- This is an ASR instruction. \n");
-    ASR(Rd, Rn, Operand2, S, CC);
+    ASR(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  //Bitwise Clear
-  if(!strcmp(d_opcode, "1111")) {
+  //BIC - Bitwise Clear
+  if(!strcmp(d_opcode, "1110")) {
     printf("--- This is an BIC instruction. \n");
-    BIC(Rd, Rn, Operand2, S, CC);
+    BIC(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  //Compare Negative
+  //CMN - Compare Negative
     if(!strcmp(d_opcode, "1011")) {
     printf("--- This is an CMN instruction. \n");
-    CMN(Rd, Rn, Operand2, S, CC);
+    CMN(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  //Compare 
-    if(!strcmp(d_opcode, "1011")) {
+  //CMP - Compare 
+    if(!strcmp(d_opcode, "1010")) {
     printf("--- This is an CMP instruction. \n");
-    CMP(Rd, Rn, Operand2, S, CC);
+    CMP(Rd, Rn, Operand2, S, I, CC);
     return 0;
   }
-  //Bitwise XOR
+  //EOR - Bitwise XOR
     if(!strcmp(d_opcode, "0001")) {
     printf("--- This is an EOR instruction. \n");
-    EOR(Rd, Rn, Operand2, S, CC);
+    EOR(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  //LSL
-  //LSR
-  //MOV
-  //MVN
-  //Bitwise OR
+  //LSL - Logical Shift Left
+    if(!strcmp(d_opcode, "1101")) {
+    printf("--- This is an LSL instruction. \n");
+    LSL(Rd, Rn, Operand2, I, S, CC);
+    return 0;
+  }
+  //LSR - Logical Shift Right
+    if(!strcmp(d_opcode, "1101")) {
+    printf("--- This is an LSR instruction. \n");
+    LSR(Rd, Rn, Operand2, I, S, CC);
+    return 0;
+  }
+  //MOV - Move
+    if(!strcmp(d_opcode, "1101")) {
+    printf("--- This is an MOV instruction. \n");
+    MOV(Rd, Rn, Operand2, I, S, CC);
+    return 0;
+  }
+  //MVN - Bitwise Not
+    if(!strcmp(d_opcode, "1111")) {
+    printf("--- This is an MVN instruction. \n");
+    MVN(Rd, Rn, Operand2, I, S, CC);
+    return 0;
+  }
+  //ORR - Bitwise OR
   if(!strcmp(d_opcode, "1100")) {
     printf("--- This is an ORR instruction. \n");
-    ORR(Rd, Rn, Operand2, S, CC);
+    ORR(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  //ROR
+  //ROR - Rotate Right
+    if(!strcmp(d_opcode, "1101")) {
+    printf("--- This is an ROR instruction. \n");
+    ROR(Rd, Rn, Operand2, I, S, CC);
+    return 0;
+  }
   //Subtract with Carry
   if(!strcmp(d_opcode, "0110")) {
     printf("--- This is an SBC instruction. \n");
-    SBC(Rd, Rn, Operand2, S, CC);
+    SBC(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
   //Subtract
   if(!strcmp(d_opcode, "0010")) {
     printf("--- This is an SUB instruction. \n");
-    SUB(Rd, Rn, Operand2, S, CC);
+    SUB(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
   //TEQ - Test Equivalence
   if(!strcmp(d_opcode, "1001")) {
     printf("--- This is an TEQ instruction. \n");
-    TEQ(Rd, Rn, Operand2, S, CC);
+    TEQ(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
   //TST - Test
   if(!strcmp(d_opcode, "1000")) {
     printf("--- This is an TST instruction. \n");
-    CMN(Rd, Rn, Operand2, S, CC);
+    TST(Rd, Rn, Operand2, I, S, CC);
     return 0;
   }
-  
-  	
-
-  /* Add other data instructions here */ 
+  /* END of Data-Processing Instructions */ 
 
   return 1;	
 }
@@ -224,7 +245,8 @@ int branch_process(char* i_) {
   /* This function execute branch instruction */
 
   /* Add branch instructions here */ 
-
+  //B - Branch
+  //BL - Branch with Link
   return 1;
 
 }
@@ -235,6 +257,7 @@ int mul_process(char* i_) {
 
   /* Add multiply instructions here */ 
 
+
   return 1;
 
 }
@@ -244,6 +267,10 @@ int transfer_process(char* i_) {
   /* This function execute memory instruction */
 
   /* Add memory instructions here */ 
+  //LDR - Load Register
+  //LDRB - Load Byte
+  //STR - Store Register
+  //STRB - Store Byte
 
   return 1;
 

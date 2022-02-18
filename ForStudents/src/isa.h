@@ -93,7 +93,7 @@ int AND (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
-int ASR (int Rd, int Rm, int Rs, int S, int CC){
+int ASR (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
@@ -105,10 +105,10 @@ int BIC (int Rd, int Rn, int Operand2, int I, int S, int CC){
 
 int BL (char* i_);
 
-int CMN (int Rn, int Operand2, int S, int CC){
+int CMN (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
-int CMP (int Rn, int Operand2, int S, int CC){
+int CMP (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 int EOR (int Rd, int Rn, int Operand2, int I, int S, int CC){
@@ -116,21 +116,23 @@ int EOR (int Rd, int Rn, int Operand2, int I, int S, int CC){
 }
 int LDR (char* i_);
 int LDRB (char* i_);
-int LSL (int Rd, int Rm, int Rs, int S, int CC){
+
+int LSL (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
-int LSR (int Rd, int Rm, int Rs, int S, int CC){
+int LSR (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
 int MLA (char* i_);
-int MOV (int Rd, int Operand2, int S){
+
+int MOV (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 int MUL (char* i_);
 
-int MVN (int Rd, int Operand2, int S){
+int MVN (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
@@ -138,7 +140,7 @@ int ORR (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
-int ROR (int Rd, int Rm, int Rs, int S, int CC){
+int ROR (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 
@@ -146,15 +148,17 @@ int ROR (int Rd, int Rm, int Rs, int S, int CC){
 int SBC (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
+
 int STR (char* i_);
 int STRB (char* i_);
+
 int SUB (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
-int TEQ (int Rn, int Operand2, int S, int CC){
+int TEQ (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
-int TST (int Rn, int Operand2, int S, int CC){
+int TST (int Rd, int Rn, int Operand2, int I, int S, int CC){
   //add code
 }
 int SWI (char* i_){return 0;}
