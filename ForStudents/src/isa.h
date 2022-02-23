@@ -82,6 +82,8 @@ int ADD (int Rd, int Rn, int Operand2, int I, int S, int CC) {
     if (cur == 0)
       NEXT_STATE.CPSR |= Z_N;
   }	
+  //add Overflow flag check
+
   return 0;
 
 }
