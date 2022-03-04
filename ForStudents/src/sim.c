@@ -240,7 +240,6 @@ int data_process(char* i_) {
   return 1;	
 }
 
-int branch_process(char* i_) {
   
 int branch_process(char* i_) {
   
@@ -271,9 +270,7 @@ int branch_process(char* i_) {
   }
   return 1;
 }
-  return 1;
 
-}
 
 int mul_process(char* i_) {
 
