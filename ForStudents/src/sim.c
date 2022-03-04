@@ -242,11 +242,35 @@ int data_process(char* i_) {
 
 int branch_process(char* i_) {
   
-  /* This function execute branch instruction */
-
-  /* Add branch instructions here */ 
+int branch_process(char* i_) {
+  
+   /* Add branch instructions here */ 
+  char d_cond[5];
+  d_cond[0] = i_[0];
+  d_cond[1] = i_[1];
+  d_cond[2] = i_[2];
+  d_cond[3] = i_[3];
+  d_cond[4] = '\0';
+  int L;
+  L = i_[7] - '0';
+  char imm24[25];
+  imm24[24] = '\0';
+  for(int i = 0; i < 24; i++) {
+    imm24[i] = i_[8+i];
+  }
+  int IM = bchar_to_int(imm24);
   //B - Branch
-  //BL - Branch with Link
+  printf("Cond = %s\n 1L = 1%d\n imm24 = %s\n", d_cond, L, imm24);
+  if(!L) {
+    printf("--- This is a Branch instruction. \n");
+    B(IM);
+  }
+  else {
+    printf("--- This is a Branch with Link Instruction. \n");
+    BL(IM);
+  }
+  return 1;
+}
   return 1;
 
 }
